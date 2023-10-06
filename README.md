@@ -69,9 +69,16 @@ chcek cron/log after a few weeks
 
 
 ## apache2 stuff
+use sudo to put stuff in /html and enjoy !
 
 ### boot
 `sudo docker compose up -d`
 
 ### kill and remove
-`sudo docker kill pihole && sudo docker rm pihole`
+`sudo docker kill apache2 && sudo docker rm apache2`
+
+### get a shell
+`sudo docker exec -it apache2 /bin/bash`
+
+### reboot
+`sudo docker exec -it apache2 service apache2 restart`

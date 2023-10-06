@@ -1,11 +1,12 @@
 version: '3'
 services:
   apache2-server:
-    image: httpd:latest  # Use the official Apache image
-    container_name: my-apache2-server
+    image: ubuntu/apache2:latest  # Use the official Apache image
+    container_name: apache2
     ports:
       - "80:80"  # Map host port 80 to container port 80
     volumes:
-      - ./html:/var/www/html  # Mount a local directory as the web root
-      - .apache2.conf:/etc/apache2/apache2.conf
+      - ./html:/var/www/html
+    environment:
+      TZ: "America/Phoenix"
     restart: unless-stopped  # Restart the container unless explicitly stopped
