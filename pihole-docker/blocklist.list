@@ -27,5 +27,10 @@ Blocks porn/shock/adult sites
 https://nsfw.oisd.nl
 
 
+# my extra blocking:
+https://raw.githubusercontent.com/Bald-Badger/linux_jumpstart/master/pihole-docker/my_block.list
 
-# single extra blocking:
+
+# regex blocking
+# regex cannot be imported as list! must use pihole command or in UI Domains tag
+https://raw.githubusercontent.com/mmotti/pihole-regex/master/regex.list
