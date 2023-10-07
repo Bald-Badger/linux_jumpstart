@@ -16,3 +16,6 @@ var-log/
 
 # WIP/test stuff
 doco.yml
+
+# log
+cron_log/

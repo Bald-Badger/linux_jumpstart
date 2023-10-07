@@ -1,33 +1,15 @@
 # Pi-hole: A black hole for Internet advertisements
-# (c) 2015, 2016 by Jacob Salmela
-# Network-wide ad blocking via your Raspberry Pi
-# http://pi-hole.net
-# Updates ad sources every week
-#
-# Pi-hole is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 2 of the License, or
-# (at your option) any later version.
-#
-# This file is under source-control of the Pi-hole installation and update
-# scripts, any changes made to this file will be overwritten when the softare
-# is updated or re-installed. Please make any changes to the appropriate crontab
-# or other cron file snippets.
+# need to schedule as root
 
-# Your container name goes here:
 DOCKER_NAME=pihole
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
-# Pi-hole: Update the ad sources once a week on Sunday at 01:59
+# Pi-hole: Update the ad sources daily
 #          Download any updates from the adlists
-#59 1    * * 7   root    PATH="$PATH:/usr/local/bin/" docker exec $DOCKER_NAME pihole updateGravity > /home/shuai/linux_jumpstart/pihole-docker/cron_log/update_$(date +\%Y\%m\%d).log 2>&1
-15 23   * * *   root    PATH="$PATH:/usr/local/bin/" docker exec $DOCKER_NAME pihole updateGravity > /home/shuai/linux_jumpstart/pihole-docker/cron_log/update_$(date +\%Y\%m\%d).log 2>&1
+00 06 * * * PATH="$PATH:/usr/local/bin/" docker exec $DOCKER_NAME pihole updateGravity > /home/shuai/linux_jumpstart/pihole-docker/cron_log/updateGravityLog/update_$(date +\%Y\%m\%d).log 2>&1
 
-# Update docker-pi-hole by pulling the latest docker image and re-creating your container.
-# pihole software update commands are unsupported in docker!
-#30 2    * * 7   root    PATH="$PATH:/usr/local/bin/" docker exec $DOCKER_NAME pihole updatePihole > /dev/null
 
-# Pi-hole: Flush the log daily at 00:00 so it doesn't get out of control
+# Pi-hole: Flush the log daily so it doesn't get out of control
 #          Stats will be viewable in the Web interface thanks to the cron job above
-00 00   * * *   root    PATH="$PATH:/usr/local/bin/" docker exec $DOCKER_NAME pihole flush > /home/shuai/linux_jumpstart/pihole-docker/cron_log/flush_$(date +\%Y\%m\%d).log 2>&1
+00 07 * * * PATH="$PATH:/usr/local/bin/" docker exec $DOCKER_NAME pihole flush > /home/shuai/linux_jumpstart/pihole-docker/cron_log/flushLogLog/flush_$(date +\%Y\%m\%d).log 2>&1
 
