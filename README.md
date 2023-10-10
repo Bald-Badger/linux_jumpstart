@@ -30,6 +30,16 @@ eval $(thefuck --alias)
 eval $(thefuck --alias FUCK)
 ```
 
+## Docker stuff
+```bash
+# after installing docker
+sudo groupadd docker
+sudo usermod -aG docker $USER
+sudo systemctl enable docker.service
+sudo systemctl enable containerd.service
+sudo systemctl restart docker
+```
+
 ## 3d printer stuff
 ```bash
 sudo usermod -aG dialout shuai
