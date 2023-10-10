@@ -74,7 +74,7 @@ systemctl restart systemd-resolved
 `sudo docker exec -it pihole pihole -a -p`
 
 ### schedule update
-`sudo corntab -u shuai ./docker-pi-hole.cron`
+`corntab ./docker-pi-hole.cron`
 chcek cron/log after a few weeks
 
 

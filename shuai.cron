@@ -1,0 +1,15 @@
+# Pi-hole: A black hole for Internet advertisements
+# don't forget to add user to docker group
+# run command: crontab /home/shuai/linux_jumpstart/shuai.cron
+
+DOCKER_NAME=pihole
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+# Pi-hole: Update the ad sources every week
+#          Download any updates from the adlists
+00 03 * * 2 PATH="$PATH:/usr/local/bin/" docker exec $DOCKER_NAME pihole updateGravity > /home/shuai/linux_jumpstart/pihole-docker/cron_log/updateGravityLog/update_$(date +\%Y\%m\%d).log 2>&1
+
+
+# Pi-hole: Flush the log daily so it doesn't get out of control
+#          Stats will be viewable in the Web interface thanks to the cron job above
+00 02 * * 2 PATH="$PATH:/usr/local/bin/" docker exec $DOCKER_NAME pihole flush > /home/shuai/linux_jumpstart/pihole-docker/cron_log/flushLogLog/flush_$(date +\%Y\%m\%d).log 2>&1
