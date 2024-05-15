@@ -49,10 +49,10 @@ port should be /dev/ttyUSB0
 
 ### boot
 don't forget to boot 3dprinter before booting docker
-`sudo docker compose up -d`
+`docker compose up -d`
 
 ### kill and remove
-`sudo docker kill octoprint && sudo docker rm octoprint`
+`docker kill octoprint && docker rm octoprint`
 
 
 ## pi-hole stuff
@@ -65,13 +65,13 @@ systemctl restart systemd-resolved
 ```
 
 ### boot
-`sudo docker compose up -d`
+`docker compose up -d`
 
 ### kill and remove
-`sudo docker kill pihole && sudo docker rm pihole`
+`docker kill pihole && docker rm pihole`
 
 ### change password
-`sudo docker exec -it pihole pihole -a -p`
+`docker exec -it pihole pihole -a -p`
 
 ### schedule update
 `corntab ./docker-pi-hole.cron`
@@ -79,16 +79,22 @@ chcek cron/log after a few weeks
 
 
 ## apache2 stuff
-use sudo to put stuff in /html and enjoy !
 
 ### boot
-`sudo docker compose up -d`
+`docker compose up -d`
 
 ### kill and remove
-`sudo docker kill apache2 && sudo docker rm apache2`
+`docker kill apache2 && docker rm apache2`
 
 ### get a shell
-`sudo docker exec -it apache2 /bin/bash`
+`docker exec -it apache2 /bin/bash`
 
 ### reboot
-`sudo docker exec -it apache2 service apache2 restart`
+`docker exec -it apache2 service apache2 restart`
+
+
+## Django stuff
+
+##
+`sudo apt install python3-django`
+

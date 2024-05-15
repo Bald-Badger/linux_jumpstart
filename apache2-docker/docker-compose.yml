@@ -1,12 +1,17 @@
+# does not work yet :(
+
 version: '3'
 services:
   apache2-server:
     image: ubuntu/apache2:latest  # Use the official Apache image
     container_name: apache2
+    #user: "1001:1001"  # Replace with user's UID and GID
     ports:
       - "80:80"  # Map host port 80 to container port 80
     volumes:
+      # don't do this; instead, pass the -v arguments in docker compose
       - ./html:/var/www/html
+      - ./apache2.conf:/etc/apache2/apache2.conf
     environment:
       TZ: "America/Phoenix"
     restart: unless-stopped  # Restart the container unless explicitly stopped
