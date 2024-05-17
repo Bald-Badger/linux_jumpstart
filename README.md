@@ -74,9 +74,14 @@ systemctl restart systemd-resolved
 `docker exec -it pihole pihole -a -p`
 
 ### schedule update
-`corntab ./docker-pi-hole.cron`
-chcek cron/log after a few weeks
+check shuai.cron
 
+### upgrade
+```
+docker pull pihole/pihole
+docker rm -f pihole
+docker compose up -d
+```
 
 ## apache2 stuff
 
