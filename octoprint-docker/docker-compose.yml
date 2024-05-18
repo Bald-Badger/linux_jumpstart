@@ -1,5 +1,6 @@
 services:
   octoprint:
+    container_name: octoprint
     image: octoprint/octoprint:latest
     restart: unless-stopped
     ports:
@@ -9,7 +10,7 @@ services:
       - /dev/ttyUSB0:/dev/ttyUSB0
     #  - /dev/video0:/dev/video0
     volumes:
-     - octoprint:/octoprint
+     - './octoprint:/octoprint'
     # uncomment the lines below to ensure camera streaming is enabled when
     # you add a video device
     environment:
