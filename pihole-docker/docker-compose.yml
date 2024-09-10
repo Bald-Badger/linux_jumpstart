@@ -1,0 +1,31 @@
+# https://github.com/pi-hole/docker-pi-hole/blob/master/README.md
+
+services:
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    # For DHCP it is recommended to remove these ports and instead add: network_mode: "host"
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      # - "67:67/udp"
+      - "5380:80/tcp"
+    environment:
+      TZ: 'America/Phoneix'
+      VIRTUAL_HOST: "pi.hole"
+      PROXY_LOCATION: "pi.hole"
+      IPv6: "true"
+      FTLCONF_LOCAL_IPV4: "192.168.50.39"
+      FTLCONF_LOCAL_IPV6: "2600:8800:1220:15:dea6:32ff:fe0c:7133"
+      PIHOLE_DNS_: "94.140.14.14;94.140.15.15"
+      WEBTHEME: "default-auto"
+
+    # Volumes store your data between container upgrades
+    volumes:
+      - './etc-pihole:/etc/pihole'
+      - './etc-dnsmasq.d:/etc/dnsmasq.d'
+    #   https://github.com/pi-hole/docker-pi-hole#note-on-capabilities
+    cap_add:
+      - NET_ADMIN
+    restart: unless-stopped # Recommended but not required (DHCP needs NET_ADMIN)
+    hostname: "pi.hole"
