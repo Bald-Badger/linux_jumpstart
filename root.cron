@@ -1,7 +1,7 @@
 # run command: sudo crontab /home/shuai/linux_jumpstart/root.cron
 
 # runs update commands and auto yes every Wednesday 4AM
-00 04 * * 2 /usr/bin/apt-get update -y && /usr/bin/apt-get upgrade -y && /usr/bin/apt update -y && /usr/bin/apt upgrade -y > /home/shuai/linux_jumpstart/cron_log/update_$(date +\%Y\%m\%d).log 2>&1
+00 04 * * 2 /usr/bin/apt-get update -y && /usr/bin/apt-get upgrade -y && /usr/bin/apt update -y && /usr/bin/apt upgrade -y && apt autoremove -y > /home/shuai/linux_jumpstart/cron_log/update_$(date +\%Y\%m\%d).log 2>&1
 
-# reboots system at 6AM, first day of every month
-0 6 1 * * /sbin/shutdown -r now
+# reboots system at 6AM, first day of every month, if no octoprint instance is running
+0 6 1 * * /usr/bin/docker ps --filter "ancestor=octoprint/octoprint" --format '{{.Names}}' | grep -q . || /sbin/shutdown -r now
