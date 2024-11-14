@@ -2,7 +2,8 @@
 my personal script that I could run every time I install a new Linux server (mainly raspberry pi)
 
 ## update
-`sudo apt-get update && sudo apt-get upgrade && sudo apt update && sudo apt upgrade`
+`sudo apt-get update && sudo apt-get upgrade -y && sudo apt update && sudo apt upgrade -y && sudo apt-get autoremove -y && sudo apt-get autoclean`
+`sudo apt-get install build-essentials -y`
 
 ## update time & time zone
 ```bash
