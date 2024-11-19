@@ -3,7 +3,7 @@ my personal script that I could run every time I install a new Linux server (mai
 
 ## update
 `sudo apt-get update && sudo apt-get upgrade -y && sudo apt update && sudo apt upgrade -y && sudo apt-get autoremove -y && sudo apt-get autoclean`
-`sudo apt-get install build-essentials -y`
+`sudo apt-get install build-essential -y`
 
 ## update time & time zone
 ```bash
