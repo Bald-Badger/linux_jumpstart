@@ -13,10 +13,11 @@ etc-dnsmasq.d/
 etc-pihole/
 var-log/
 
-whitelist.list
-
 # WIP/test stuff
 doco.yml
 
 # log
 cron_log/
+
+# compressed file
+*.tar.gz
