@@ -26,6 +26,7 @@ https://big.oisd.nl
 Blocks porn/shock/adult sites
 https://nsfw.oisd.nl
 
+https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/gambling-onlydomains.txt
 
 # my extra blocking:
 https://raw.githubusercontent.com/Bald-Badger/linux_jumpstart/master/pihole-docker/my_block.list
@@ -34,5 +35,3 @@ https://raw.githubusercontent.com/Bald-Badger/linux_jumpstart/master/pihole-dock
 # regex blocking
 # regex cannot be imported as list! must use pihole command or in UI Domains tag
 https://raw.githubusercontent.com/mmotti/pihole-regex/master/regex.list
-
-https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/gambling-onlydomains.txt

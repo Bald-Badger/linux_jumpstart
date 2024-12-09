@@ -33,7 +33,7 @@ eval $(thefuck --alias FUCK)
 
 ## Docker stuff
 ```bash
-# after installing docker
+sudo snap install docker
 sudo groupadd docker
 sudo usermod -aG docker $USER
 sudo systemctl enable docker.service
