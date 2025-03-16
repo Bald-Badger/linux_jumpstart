@@ -99,7 +99,7 @@ docker compose up -d
 `docker exec -it apache2 service apache2 restart`
 
 
-## Django stuff
+# Django stuff
 
 ##
 `sudo apt install python3-django`
