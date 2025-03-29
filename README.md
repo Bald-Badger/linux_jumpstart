@@ -55,6 +55,8 @@ don't forget to boot 3dprinter before booting docker
 ### kill and remove
 `docker kill octoprint && docker rm octoprint`
 
+### update
+`docker pull octoprint/octoprint`
 
 ## pi-hole stuff
 
@@ -64,6 +66,8 @@ sudo sed -r -i.orig 's/#?DNSStubListener=yes/DNSStubListener=no/g' /etc/systemd/
 sudo sh -c 'rm /etc/resolv.conf && ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf'
 systemctl restart systemd-resolved
 ```
+allow outbound UDP for IPv4/IPv6 port 53.
+`sudo ufw allow out 53/udp`
 
 ### boot
 `docker compose up -d`
@@ -72,7 +76,7 @@ systemctl restart systemd-resolved
 `docker kill pihole && docker rm pihole`
 
 ### change password
-`docker exec -it pihole pihole -a -p`
+`docker exec -it pihole pihole setpassword`
 
 ### schedule update
 check shuai.cron
@@ -81,7 +85,7 @@ check shuai.cron
 ```
 docker pull pihole/pihole
 docker rm -f pihole
-docker compose up -d
+docker-compose up -d
 ```
 
 ## apache2 stuff
