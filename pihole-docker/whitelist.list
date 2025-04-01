@@ -1,4 +1,6 @@
-nhentai.net
-pixiv.net
-pornhub.com
-toydemon.com
+# need to add as RegEx
+(\.|^)pornhub\.com$
+(\.|^)nhentai\.net$
+(\.|^)pixiv\.net$
+(\.|^)toydemon\.com$
+(\.|^)trendmicro\.com$
