@@ -108,3 +108,8 @@ docker-compose up -d
 ##
 `sudo apt install python3-django`
 
+
+# Samba
+`sudo service smbd start`
+`sudo service smbd restart`
+add smb user: sudo smbpasswd -a <USERNAME>
