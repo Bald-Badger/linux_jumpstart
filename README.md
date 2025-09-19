@@ -1,9 +1,16 @@
 # Linux Jumpstart
-my personal script that I could run every time I install a new Linux server (mainly raspberry pi)
+my personal script that I could run every time I install a new Linux server
 
+# first time setup steps
 ## update
 `sudo apt-get update && sudo apt-get upgrade -y && sudo apt update && sudo apt upgrade -y && sudo apt-get autoremove -y && sudo apt-get autoclean`
 `sudo apt-get install build-essential -y`
+
+## install RDP for windows remote desktop setup
+`sudo apt install xrdp`
+`sudo systemctl start xrdp`
+`sudo systemctl enable xrdp`
+`sudo ufw allow from any to any port 3389 proto tcp`
 
 ## update time & time zone
 ```bash
