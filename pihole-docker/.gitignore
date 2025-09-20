@@ -21,3 +21,4 @@ cron_log/
 
 # compressed file
 *.tar.gz
+*.zip
