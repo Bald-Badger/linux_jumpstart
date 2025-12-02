@@ -95,11 +95,6 @@ docker rm -f pihole
 docker-compose up -d
 ```
 
-## nginx stuff (for pi-hole https access)
-```
-docker network create pihole_net
-```
-
 ## apache2 stuff
 
 ### boot
