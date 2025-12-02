@@ -95,6 +95,11 @@ docker rm -f pihole
 docker-compose up -d
 ```
 
+## nginx stuff (for pi-hole https access)
+```
+docker network create pihole_net
+```
+
 ## apache2 stuff
 
 ### boot
@@ -108,15 +113,3 @@ docker-compose up -d
 
 ### reboot
 `docker exec -it apache2 service apache2 restart`
-
-
-# Django stuff
-
-##
-`sudo apt install python3-django`
-
-
-# Samba
-`sudo service smbd start`
-`sudo service smbd restart`
-add smb user: sudo smbpasswd -a <USERNAME>
