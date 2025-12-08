@@ -22,3 +22,6 @@ cron_log/
 # compressed file
 *.tar.gz
 *.zip
+
+# self signed ssl cert
+ssl_cert/

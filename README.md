@@ -97,14 +97,6 @@ docker-compose up -d
 
 ## apache2 stuff
 
-### boot
-`docker compose up -d`
+### build image
+docker build -t apache2-hello .
 
-### kill and remove
-`docker kill apache2 && docker rm apache2`
-
-### get a shell
-`docker exec -it apache2 /bin/bash`
-
-### reboot
-`docker exec -it apache2 service apache2 restart`
