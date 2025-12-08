@@ -100,3 +100,11 @@ docker-compose up -d
 ### build image
 docker build -t apache2-hello .
 
+## ssh.shuainium.com
+### ssh is up, with the help of chatgpt
+### example access
+```
+Host ssh.shuainium.com
+    User shuai
+    ProxyCommand "C:\Program Files (x86)\cloudflared\cloudflared.exe" access ssh --hostname %h
+```
