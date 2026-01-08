@@ -1,0 +1,22 @@
+# Pi-hole: A black hole for Internet advertisements
+# don't forget to add user to docker group
+# run command: crontab /home/shuai/linux_jumpstart/shuai.cron
+
+DOCKER_NAME=pihole
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+# Pi-hole: Update the ad sources every week
+#          Download any updates from the adlists
+00 03 * * 2 PATH="$PATH:/usr/local/bin/" docker exec $DOCKER_NAME pihole updateGravity > /home/shuai/linux_jumpstart/pihole-docker/cron_log/updateGravityLog/update_$(date +\%Y\%m\%d).log 2>&1
+
+
+# Pi-hole: Flush the log daily so it doesn't get out of control
+#          Stats will be viewable in the Web interface thanks to the cron job above
+00 02 * * 2 PATH="$PATH:/usr/local/bin/" docker exec $DOCKER_NAME pihole flush > /home/shuai/linux_jumpstart/pihole-docker/cron_log/flushLogLog/flush_$(date +\%Y\%m\%d).log 2>&1
+
+
+# Monthly Docker refresh (randomized between 04:00-06:59 on the 1st), excludes octoprint
+00 04 1 * * PATH="$PATH:/usr/local/bin/" bash -lc 'sleep $((RANDOM % 10800)); docker-compose -f /home/shuai/linux_jumpstart/nginx-proxy-manager/docker-compose.yml stop && docker-compose -f /home/shuai/linux_jumpstart/nginx-proxy-manager/docker-compose.yml pull && docker-compose -f /home/shuai/linux_jumpstart/nginx-proxy-manager/docker-compose.yml up -d'
+00 04 1 * * PATH="$PATH:/usr/local/bin/" bash -lc 'sleep $((RANDOM % 10800)); docker-compose -f /home/shuai/linux_jumpstart/pihole-docker/docker-compose.yml stop && docker-compose -f /home/shuai/linux_jumpstart/pihole-docker/docker-compose.yml pull && docker-compose -f /home/shuai/linux_jumpstart/pihole-docker/docker-compose.yml up -d'
+00 04 1 * * PATH="$PATH:/usr/local/bin/" bash -lc 'sleep $((RANDOM % 10800)); docker-compose -f /home/shuai/linux_jumpstart/cloudflare-tunnel-docker/docker-compose.yml stop && docker-compose -f /home/shuai/linux_jumpstart/cloudflare-tunnel-docker/docker-compose.yml pull && docker-compose -f /home/shuai/linux_jumpstart/cloudflare-tunnel-docker/docker-compose.yml up -d'
+00 04 1 * * PATH="$PATH:/usr/local/bin/" bash -lc 'sleep $((RANDOM % 10800)); docker-compose -f /home/shuai/linux_jumpstart/apache2-docker/docker-compose.yml stop && docker-compose -f /home/shuai/linux_jumpstart/apache2-docker/docker-compose.yml pull && docker-compose -f /home/shuai/linux_jumpstart/apache2-docker/docker-compose.yml up -d'
