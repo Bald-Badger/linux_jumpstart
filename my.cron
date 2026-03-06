@@ -1,6 +1,6 @@
 # Pi-hole: A black hole for Internet advertisements
 # don't forget to add user to docker group
-# run command: crontab /home/shuai/linux_jumpstart/shuai.cron
+# run command: crontab /home/shuai/linux_jumpstart/my.cron
 
 DOCKER_NAME=pihole
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
